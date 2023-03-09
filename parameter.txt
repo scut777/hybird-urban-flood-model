@@ -1,16 +1,16 @@
-mesh file£º
+mesh fileÂ£:
 G:\postgraduate\CODE\Model\StillWater\Mesh.mesh
-boundary file£º
+boundary fileÂ£:
 G:\postgraduate\CODE\Model\StillWater\bc.bc
-result file£º
+result fileÂ£:
 G:\postgraduate\CODE-simplify-version\model_simplify\Test\results.plt
-result data£º
+result dataÂ£:
 G:\postgraduate\CODE-simplify-version\model_simplify\Test\DATA\
-rainfall file£º
+rainfall fileÂ£:
 G:\\postgraduate\\CODE-simplify-version\\model_simplify\\Test\\rainfalll_file.txt
-Output interval£º
+Output intervalÂ£:
 60
 time step:
 1
-Simulation duration£º
+Simulation durationÂ£:
 7200
