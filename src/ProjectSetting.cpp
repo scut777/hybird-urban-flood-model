@@ -3,10 +3,10 @@
 //
 //   Project: OFM
 //   Version: 1.0
-//   Date:    08/30/2016
-//   Author:  WJ. Chen
+//   Date:    08/30/2019
+//   Author:  WQ WANG
 //
-//   ÉèÖÃ²½³¤¡¢³õÊ¼Ìõ¼þµÈ²ÎÊý.
+//   è®¾ç½®æ­¥é•¿ã€åˆå§‹æ¡ä»¶ç­‰å‚æ•°.
 //             
 //-----------------------------------------------------------------------------
 
@@ -21,7 +21,7 @@
 #include <sstream>
 using namespace std;
 
-void canshuchang()   //²ÎÊý³¡£¬Ö÷ÒªÎªÁËÊµÏÖÂÌµØÏÂÉø×÷ÓÃ£¨²ÚÂÊ³¡£©£¬ÒÔ¼°µÀÂ·ÐÐºé×÷ÓÃ
+void canshuchang()   //å‚æ•°åœºï¼Œä¸»è¦ä¸ºäº†å®žçŽ°ç»¿åœ°ä¸‹æ¸—ä½œç”¨ï¼ˆç³™çŽ‡åœºï¼‰ï¼Œä»¥åŠé“è·¯è¡Œæ´ªä½œç”¨
 {	
 	int i;
 	for (i=1;i<=g_CellNum;i++)
@@ -35,7 +35,7 @@ void canshuchang()   //²ÎÊý³¡£¬Ö÷ÒªÎªÁËÊµÏÖÂÌµØÏÂÉø×÷ÓÃ£¨²ÚÂÊ³¡£©£¬ÒÔ¼°µÀÂ·ÐÐºé×
 	string temp;
 	ifstream fpp;
 	stringstream ss;
-	fpp.open("G:\\postgraduate\\º£µéµºÄ£ÐÍ½á¹û\\FD\\²ÎÊýÎÄ¼þ2.txt");
+	fpp.open("G:\\postgraduate\\æµ·ç”¸å²›æ¨¡åž‹ç»“æžœ\\FD\\å‚æ•°æ–‡ä»¶2.txt");
 	getline(fpp, temp);
 	for (i=1;i<=g_CellNum;i++)
 	{
@@ -47,7 +47,7 @@ void canshuchang()   //²ÎÊý³¡£¬Ö÷ÒªÎªÁËÊµÏÖÂÌµØÏÂÉø×÷ÓÃ£¨²ÚÂÊ³¡£©£¬ÒÔ¼°µÀÂ·ÐÐºé×
 		ss.clear();
 	}
 	fpp.close();
-	// µÀÂ·ÐÐºé×÷ÓÃ£¬½«µÀÂ·½µµÍ15-20cm
+	// é“è·¯è¡Œæ´ªä½œç”¨ï¼Œå°†é“è·¯é™ä½Ž15-20cm
 	for (i=1;i<=g_CellNum;i++)
 	{
 		if (CS[i].IsRoad==1)
@@ -62,7 +62,7 @@ void CellInitialSetting()
 	
 	
 	
-	//ÉèÖÃÏîÄ¿²ÎÊý
+	//è®¾ç½®é¡¹ç›®å‚æ•°
 	string temp;
 	string strMeshfile;
 	string strBoundaryfile;
@@ -72,7 +72,7 @@ void CellInitialSetting()
 	ifstream fp;
 	stringstream ss;;
 	
-	fp.open("G:\\postgraduate\\ÃñÖÎÄ£ÐÍ½á¹û\\HHS\\parameter.txt");
+	fp.open("G:\\postgraduate\\æ°‘æ²»æ¨¡åž‹ç»“æžœ\\HHS\\parameter.txt");
 
 	getline(fp, temp);
 	getline(fp, strMeshfile);
@@ -105,11 +105,11 @@ void CellInitialSetting()
 	fp.close();
 	
 
-	sprintf(CellMeshFile.name,"%s",strMeshfile.c_str());  //Íø¸ñÎÄ¼þ
-	sprintf(CellBoundaryFile.name,"%s",strBoundaryfile.c_str());     //±ß½çÎÄ¼þ
-	sprintf(CellResultFile.name,"%s",strResultfile.c_str()); //½á¹ûÎÄ¼þ
-	sprintf(CellTecplotFile.name,"%s",strTecplotfile.c_str());    //TecplotÎÄ¼þ
-	/*sprintf(RainfallFile,"%s",strRainfallfile.c_str()); */ //½µÓêÎÄ¼þ
+	sprintf(CellMeshFile.name,"%s",strMeshfile.c_str());  //ç½‘æ ¼æ–‡ä»¶
+	sprintf(CellBoundaryFile.name,"%s",strBoundaryfile.c_str());     //è¾¹ç•Œæ–‡ä»¶
+	sprintf(CellResultFile.name,"%s",strResultfile.c_str()); //ç»“æžœæ–‡ä»¶
+	sprintf(CellTecplotFile.name,"%s",strTecplotfile.c_str());    //Tecplotæ–‡ä»¶
+	/*sprintf(RainfallFile,"%s",strRainfallfile.c_str()); */ //é™é›¨æ–‡ä»¶
 	/*cout<<strMeshfile;
 	cout<<CellBoundaryFile.name;
 	cout<<CellResultFile.name;
@@ -118,27 +118,27 @@ void CellInitialSetting()
 	
 	
 	time_step_real=time_step_plan;
-	/*ÉèÖÃÄ¬ÈÏ²ÎÊý*/
+	/*è®¾ç½®é»˜è®¤å‚æ•°*/
 	
 
-	Time_total=0.0; //×¢Òâ´Ë´¦
+	Time_total=0.0; //æ³¨æ„æ­¤å¤„
 	g_CellTotalTimeInTS=0;
 
 	/*Time_total_plan=step_num*time_step_plan; *///step_num*step_dt
 
-	/*¸ÉÊª±ß½çÑ¡Ïî*/
-	h_dry=0.0001; //µÍÓÚ´ËÖµ£¬²»²ÎÓë¼ÆËã£¬drying_valueÉèÎªÁãÊ±£¬Ïàµ±ÓÚ²»Æð×÷ÓÃ¡£
+	/*å¹²æ¹¿è¾¹ç•Œé€‰é¡¹*/
+	h_dry=0.0001; //ä½ŽäºŽæ­¤å€¼ï¼Œä¸å‚ä¸Žè®¡ç®—ï¼Œdrying_valueè®¾ä¸ºé›¶æ—¶ï¼Œç›¸å½“äºŽä¸èµ·ä½œç”¨ã€‚
 	
-	Max_Control_Velocity=32; //ÔÊÐí×î´óÁ÷ËÙ
+	Max_Control_Velocity=32; //å…è®¸æœ€å¤§æµé€Ÿ
 	Max_Xcoord=0;
 	Max_Ycoord=0;
 	radio=0;
 
 	CFL=0.8;
-	/*½á¹û³öÑ¡Ïî*/
-	g_IsCellOutputResult=1; //ÊÇ·ñÊä³ö½á¹ûÎÄ¼þ
-	g_CellOutputStep=1; //½á¹ûÊä³öÆµÂÊ
-	//OutputTimeInterval=360; //½á¹ûÊä³ö¼ä¸ô£¬³ÌÐòÖÐÓÃÕâ¸ö×÷ÎªÊä³ö¼ä¸ô£¬Ã»ÓÐ²ÉÓÃÉÏÃæµÄg_CellOutputStep¿ØÖÆ
+	/*ç»“æžœå‡ºé€‰é¡¹*/
+	g_IsCellOutputResult=1; //æ˜¯å¦è¾“å‡ºç»“æžœæ–‡ä»¶
+	g_CellOutputStep=1; //ç»“æžœè¾“å‡ºé¢‘çŽ‡
+	//OutputTimeInterval=360; //ç»“æžœè¾“å‡ºé—´éš”ï¼Œç¨‹åºä¸­ç”¨è¿™ä¸ªä½œä¸ºè¾“å‡ºé—´éš”ï¼Œæ²¡æœ‰é‡‡ç”¨ä¸Šé¢çš„g_CellOutputStepæŽ§åˆ¶
 }
 
 void SetCellInitialCondition()
@@ -196,12 +196,12 @@ void SetCellInitialCondition()
 			//P1x= 4701.1830;
 			//P1y= 4143.4070;
 			//P2x= 4655.5530;
-			//P2y= 4392.1040;       // °ÓÖ·Á½¸ö¶Ëµã //
+			//P2y= 4392.1040;       // åå€ä¸¤ä¸ªç«¯ç‚¹ //
 
 			//for (i=0;i<=g_CellNum;i++)
 			//{ 
 			//	dis= (P2y-P1y)*cell_info[i][6]+(P1x-P2x)*cell_info[i][7]+P2x*P1y-P1x*P2y;
-			//	 if (dis<=0)			//ÅÐ¶ÏÔÚÕâÁ½¸öµãµÄ×ó²à
+			//	 if (dis<=0)			//åˆ¤æ–­åœ¨è¿™ä¸¤ä¸ªç‚¹çš„å·¦ä¾§
 			//	 {
 			//		 cell_info[i][1]=100-cell_info[i][8];
 			//		 cell_info[i][3]=0;
@@ -211,7 +211,7 @@ void SetCellInitialCondition()
 			//		 cell_info[i][1]=0;
 			//		 cell_info[i][3]=0;
 			//		 cell_info[i][4]=0;
-			//	if(((cell_info[i][6]-4500)*(cell_info[i][6]-4500)+(cell_info[i][7]-5350)*(cell_info[i][7]-5350))<=40000)  //ÅÅ³ýÉÏ±ßµÄ½Ç
+			//	if(((cell_info[i][6]-4500)*(cell_info[i][6]-4500)+(cell_info[i][7]-5350)*(cell_info[i][7]-5350))<=40000)  //æŽ’é™¤ä¸Šè¾¹çš„è§’
 			//	{
 			//		 cell_info[i][1]=0;
 			//		 cell_info[i][3]=0;
@@ -222,7 +222,7 @@ void SetCellInitialCondition()
 	
 			   
 		
-		/***************·ÇÆ½µ×À£°Ó case*******************/
+		/***************éžå¹³åº•æºƒå case*******************/
 	/*	 if (cell_info[Cell_i][6]<=16)
 		{
 			cell_info[Cell_i][1]=1.875;
@@ -241,13 +241,13 @@ void SetCellInitialCondition()
 
 	for (i=1;i<=g_CellNum;i++)
 	{
-		cell_info[i][3]=0;   //ËÙ¶Èu
-		cell_info[i][4]=0.0;   //ËÙ¶Èv
+		cell_info[i][3]=0;   //é€Ÿåº¦u
+		cell_info[i][4]=0.0;   //é€Ÿåº¦v
 		cell_info[i][5]=0.033; //Maning N
 		cell_type[0]=0;
-		cell_info[0][2]=0.1;  //±¾³õÖµÎÞÈÎºÎÒâÒå£¬½ö·ÀÖ¹Êý×é±ß½çÔ½Î»
-		cell_info[0][1]=0.1;  //±¾³õÖµÎÞÈÎºÎÒâÒå£¬½ö·ÀÖ¹Êý×é±ß½çÔ½Î»
-		triangle_c[0][6]=-1;      //±¾³õÖµÎÞÈÎºÎÒâÒå£¬½ö·ÀÖ¹Êý×é±ß½çÔ½Î»
+		cell_info[0][2]=0.1;  //æœ¬åˆå€¼æ— ä»»ä½•æ„ä¹‰ï¼Œä»…é˜²æ­¢æ•°ç»„è¾¹ç•Œè¶Šä½
+		cell_info[0][1]=0.1;  //æœ¬åˆå€¼æ— ä»»ä½•æ„ä¹‰ï¼Œä»…é˜²æ­¢æ•°ç»„è¾¹ç•Œè¶Šä½
+		triangle_c[0][6]=-1;      //æœ¬åˆå€¼æ— ä»»ä½•æ„ä¹‰ï¼Œä»…é˜²æ­¢æ•°ç»„è¾¹ç•Œè¶Šä½
 	
 
 		U[i][1]=cell_info[i][1]; //h
@@ -307,7 +307,7 @@ void CellInflowInitaillyDry()
 {
 	int Cell_i,Cell_k,edge_ID,boundary_i;
 	
-	if (g_CellBoundary_num<=1) return;    //Ã»ÓÐ¿ª±ß½ç
+	if (g_CellBoundary_num<=1) return;    //æ²¡æœ‰å¼€è¾¹ç•Œ
 	for (boundary_i=1;boundary_i<=g_CellBoundary_num-1;boundary_i++)
 	{
 		if (g_CellBoundary_info[boundary_i].B_Kind!=4) continue;
@@ -318,8 +318,8 @@ void CellInflowInitaillyDry()
 				edge_ID=triangle_info[Cell_i][4+Cell_k];
 				if(edge_info[edge_ID][6]==g_CellBoundary_info[boundary_i].CellTypeID)
 				{
-					cell_info[Cell_i][1]=0.05; //Ë®Î»µÈÓÚ¸ß³Ì¼ÓË®Éî
-					           //++++++¼ÆËã¶ÔÓ¦Ë®Éî
+					cell_info[Cell_i][1]=0.05; //æ°´ä½ç­‰äºŽé«˜ç¨‹åŠ æ°´æ·±
+					           //++++++è®¡ç®—å¯¹åº”æ°´æ·±
 				}
 			}
 		}
